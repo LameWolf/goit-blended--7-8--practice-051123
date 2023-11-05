@@ -1,5 +1,5 @@
 import yargs from "yargs";
-import { createFile } from "./files.js";
+import { createFile, getFileInfo, getFiles } from "./files.js";
 
 function invokeAction({ action, fileName, content }) {
   switch (action) {
@@ -7,10 +7,12 @@ function invokeAction({ action, fileName, content }) {
       createFile(fileName, content);
       break;
 
-    case "":
+    case "get":
+      getFiles();
       break;
 
-    case "":
+    case "getInfo":
+      getFileInfo(fileName);
       break;
 
     default:
